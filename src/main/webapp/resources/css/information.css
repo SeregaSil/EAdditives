@@ -1,0 +1,34 @@
+/* INFORMATION
+=============================*/
+.information {
+    padding: 25px 0;
+    border-bottom: 1px solid #000;
+}
+
+.information__inner {
+    width: 100%;
+    max-width: 1050px;
+
+    margin: 0 auto;
+    text-align: center;
+}
+
+.information_photo {
+    height: auto;
+    width: 120px;
+}
+
+.information__text {
+    text-align: left;
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: 400;
+}
+
+.information__text {
+    margin: 25px 0;
+}
+
+.information__text > p:last-child{
+    margin-bottom: 0;
+}

@@ -1,0 +1,39 @@
+/* TABLE
+=============================*/
+.table_additivies {
+    text-align: center;
+}
+
+.table_additivies__title {
+    font-size: 22px;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.table_additivies__table {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1E1E1E;
+    text-align: center;
+    border-collapse: collapse;
+    border: 14px solid #D3FFE9;
+    background: #D3FFE9;
+
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+th {
+    background: #B9FFDE;
+    border: 14px solid #B9FFDE;
+}
+
+th, td {
+    padding: 10px 20px;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+}

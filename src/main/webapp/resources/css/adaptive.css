@@ -1,0 +1,29 @@
+/* ADAPTIVE
+=============================*/
+@media (max-width: 1350px) {
+
+    /* Container */
+    .container {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1190px) {
+
+    /* Container */
+    .container {
+        max-width: 850px;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    /* Container */
+    .container {
+        width: 100%;
+        max-width: 1000px;
+
+        margin: 0;
+        border-radius: 0;
+    }
+}
