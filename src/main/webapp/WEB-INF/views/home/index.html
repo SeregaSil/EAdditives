@@ -5,11 +5,11 @@
         <title>E-additives</title>
 
         <link rel="stylesheet" href="/resources/css/style.css">
-        <link rel="stylesheet" href="/resources/checkbox/checkbox_in_select_style.css">
         <link rel="stylesheet" href="/resources/button/main_button.css">
+        <link rel="stylesheet" href="/resources/checkbox/checkbox_in_select_style.css">
+        <link rel="stylesheet" href="/resources/css/information.css">
         <link rel="stylesheet" href="/resources/css/feedback.css">
         <link rel="stylesheet" href="/resources/css/adaptive.css">
-        <link rel="stylesheet" href="/resources/css/information.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,17 @@
             <div class="container">
 
                 <!-- Header -->
-                <div th:insert="fragments/header"></div>
+                <header th:fragment="header" class="header">
+                    <div class="header__inner">
+                        <div>
+                            <img class="header__logo" src="/resources/img/logo/logo-nofon(min).png" alt="">
+                        </div>
+
+                        <nav class="nav">
+                            <a class="nav__link" href="https://www.who.int/ru/news-room/fact-sheets/detail/food-additives">Главная</a>
+                        </nav>
+                    </div>
+                </header>
 
                 <!-- Main -->
                 <main class="main">
@@ -50,77 +60,51 @@
                                 <div class="select__icon"></div>
                             </div>
                             <div class="select__body">
-                                    <div  class="select__vertical" > E100-E199
-                                        <label th:each="eadditive : ${additives}" th:if="${eadditive.type} == Краситель" class="select__checkbox">
-                                            <input class="select__item" type="checkbox" name="index" th:value="${eadditive.index}"/>
-                                            <span class="select__checkbox__icon" ></span>
-                                            <span class="select__checkbox__value" th:text="${eadditive.index}"></span>
-                                        </label>
-                                    </div>
-                                    <div class="select__vertical" > E200-E299
-                                        <label th:each="eadditive : ${additives}" th:if="${eadditive.type} == Консервант" class="select__checkbox">
-                                            <input class="select__item" type="checkbox" name="index" th:value="${eadditive.index}"/>
-                                            <span class="select__checkbox__icon" ></span>
-                                            <span class="select__checkbox__value" th:text="${eadditive.index}"></span>
-                                        </label>
-                                    </div>
-                                    <div  class="select__vertical" > E300-E399
-                                        <label th:each="eadditive : ${additives}" th:if="${eadditive.type} == Антиокислитель" class="select__checkbox">
-                                            <input class="select__item" type="checkbox" name="index" th:value="${eadditive.index}"/>
-                                            <span class="select__checkbox__icon" ></span>
-                                            <span class="select__checkbox__value" th:text="${eadditive.index}"></span>
-                                        </label>
-                                    </div>
-<!--                                    <div  class="select__vertical" > E400-E499-->
-<!--                                        <label th:each="eadditive : ${additives}" th:if="${eadditive.group} == " class="select__checkbox">-->
-<!--                                            <input class="select__item" type="checkbox" name="index" th:value="${eadditive.index}"/>-->
-<!--                                            <span class="select__checkbox__icon" ></span>-->
-<!--                                            <span class="select__checkbox__value" th:text="${eadditive.index}"></span>-->
-<!--                                        </label>-->
-<!--                                    </div>-->
-<!--                                    <div class="select__vertical" > E500-E599-->
-<!--                                        <label th:each="eadditive : ${additives}"  th:if="${eadditive.group} == " class="select__checkbox">-->
-<!--                                            <input class="select__item" type="checkbox" name="index" th:value="${eadditive.index}"/>-->
-<!--                                            <span class="select__checkbox__icon" ></span>-->
-<!--                                            <span class="select__checkbox__value" th:text="${eadditive.index}"></span>-->
-<!--                                        </label>-->
-<!--                                    </div>-->
-<!--                                    <div   class="select__vertical" > E600-E699-->
-<!--                                        <label th:each="eadditive : ${additives}"  th:if="${eadditive.group} == " class="select__checkbox">-->
-<!--                                            <input class="select__item" type="checkbox" name="index" th:value="${eadditive.index}"/>-->
-<!--                                            <span class="select__checkbox__icon" ></span>-->
-<!--                                            <span class="select__checkbox__value" th:text="${eadditive.index}"></span>-->
-<!--                                        </label>-->
-<!--                                    </div>-->
-<!--                                    <div  class="select__vertical" > E700-E799-->
-<!--                                        <label th:each="eadditive : ${additives}"  th:if="${eadditive.group} == " class="select__checkbox">-->
-<!--                                            <input class="select__item" type="checkbox" name="index" th:value="${eadditive.index}"/>-->
-<!--                                            <span class="select__checkbox__icon" ></span>-->
-<!--                                            <span class="select__checkbox__value" th:text="${eadditive.index}"></span>-->
-<!--                                        </label>-->
-<!--                                    </div>-->
-<!--                                    <div class="select__vertical" > E800-E899-->
-<!--                                        <label th:each="eadditive : ${additives}"  th:if="${eadditive.group} == " class="select__checkbox">-->
-<!--                                            <input class="select__item" type="checkbox" name="index" th:value="${eadditive.index}"/>-->
-<!--                                            <span class="select__checkbox__icon" ></span>-->
-<!--                                            <span class="select__checkbox__value" th:text="${eadditive.index}"></span>-->
-<!--                                        </label>-->
-<!--                                    </div>-->
-<!--                                    <div  class="select__vertical" > E900-E999-->
-<!--                                        <label th:each="eadditive : ${additives}"  th:if="${eadditive.group} == " class="select__checkbox">-->
-<!--                                            <input class="select__item" type="checkbox" name="index" th:value="${eadditive.index}"/>-->
-<!--                                            <span class="select__checkbox__icon" ></span>-->
-<!--                                            <span class="select__checkbox__value" th:text="${eadditive.index}"></span>-->
-<!--                                        </label>-->
-<!--                                    </div>-->
-<!--                                    <div  class="select__vertical" > E1000-E1999-->
-<!--                                        <label th:each="eadditive : ${additives}"  th:if="${eadditive.group} == " class="select__checkbox">-->
-<!--                                            <input class="select__item" type="checkbox" name="index" th:value="${eadditive.index}"/>-->
-<!--                                            <span class="select__checkbox__icon" ></span>-->
-<!--                                            <span class="select__checkbox__value" th:text="${eadditive.index}"></span>-->
-<!--                                        </label>-->
-<!--                                    </div>-->
+                                <div class="spoller">
+                                    <span class="spoller__title">E100-E199</span>
+                                    <div class="spoller__icon"></div>
                                 </div>
+                                <div class="select__vertical">
+                                    <span>E100-E199</span>
+                                    <label th:each="eadditive : ${additives}" th:if="${eadditive.type} == Краситель"
+                                           class="select__checkbox">
+                                        <input class="select__item" type="checkbox" name="index"
+                                               th:value="${eadditive.index}"/>
+                                        <span class="select__checkbox__icon"></span>
+                                        <span class="select__checkbox__value" th:text="${eadditive.index}"></span>
+                                    </label>
+                                </div>
+
+                                <div class="spoller">
+                                    <span class="spoller__title">E200-E299</span>
+                                    <div class="spoller__icon"></div>
+                                </div>
+                                <div class="select__vertical">
+                                    <span>E200-E299</span>
+                                    <label th:each="eadditive : ${additives}" th:if="${eadditive.type} == Консервант"
+                                           class="select__checkbox">
+                                        <input class="select__item" type="checkbox" name="index"
+                                               th:value="${eadditive.index}"/>
+                                        <span class="select__checkbox__icon"></span>
+                                        <span class="select__checkbox__value" th:text="${eadditive.index}"></span>
+                                    </label>
+                                </div>
+
+                                <div class="spoller">
+                                    <span class="spoller__title">E300-E399</span>
+                                    <div class="spoller__icon"></div>
+                                </div>
+                                <div class="select__vertical">
+                                    <span>E300-E399</span>
+                                    <label th:each="eadditive : ${additives}"
+                                           th:if="${eadditive.type} == Антиокислитель" class="select__checkbox">
+                                        <input class="select__item" type="checkbox" name="index"
+                                               th:value="${eadditive.index}"/>
+                                        <span class="select__checkbox__icon"></span>
+                                        <span class="select__checkbox__value" th:text="${eadditive.index}"></span>
+                                    </label>
+                                </div>
+                            </div>
 
                         <input class="form__button form__submit" type="submit" value="Расшифровать">
                         <input class="form__button form__submit" type="reset" value="Очистить">

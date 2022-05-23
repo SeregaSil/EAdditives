@@ -10,7 +10,6 @@
 
 .select__header {
     display: flex;
-
     cursor: pointer;
 
     height: 30px;
@@ -147,9 +146,14 @@
     height: 17px;
 }
 
+/* SPOLLER
+=============================*/
+.spoller {
+    display: none;
+}
+
 /* FORM
 =============================*/
-
 .form {
     text-align: center;
     padding: 25px 0 20px 0;
