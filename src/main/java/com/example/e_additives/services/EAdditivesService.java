@@ -13,14 +13,14 @@ public class EAdditivesService {
     @Autowired
     private EAdditivesDAO eAdditivesDAO;
 
-    public List<EAdditive> findAll(){
-        return eAdditivesDAO.findAll();
+    public List<EAdditive> getAllAdditives(){
+        return eAdditivesDAO.findAllAdditives();
     }
 
-    public List<EAdditive> findSelectedAdditives(String[] indexes){
+    public List<EAdditive> getSelectedAdditivesByIndex(List<String> indexes){
         List<EAdditive> selectedAdditives = new ArrayList<>();
         for (String index:indexes) {
-            selectedAdditives.add(eAdditivesDAO.findByIndex(index));
+            selectedAdditives.add(eAdditivesDAO.findAdditiveByIndex(index));
         }
         return selectedAdditives;
     }

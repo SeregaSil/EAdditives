@@ -131,9 +131,11 @@
                                 <h3 class="feedback__subtitle">Если вы заметили какие-то ошибки в предоставленной информации, пожалуйста, потратьте немного своего драгоценного времени и сообщите о ней нам. Только так мы сможем исправить неточности и помочь остальным.</h3>
                             </div>
                             <form action="/sent" class="feedback__form" method="post" accept-charset="UTF-8" target="_blank">
-                                <textarea class="feedback__textarea" type="text"  name="message" placeholder="Сообщите нам об ошибке..."></textarea>
-                                <input class="form__button feedback__submit" type="submit" value="Отправить">
-                                <input class="form__button feedback__submit" type="reset" value="Очистить">
+                                <label>
+                                    <textarea class="feedback__textarea" name="message" placeholder="Сообщите нам об ошибке..."></textarea>
+                                    <input class="form__button feedback__submit" type="submit" value="Отправить">
+                                    <input class="form__button feedback__submit" type="reset" value="Очистить">
+                                </label>
                             </form>
                         </div>
                     </div>

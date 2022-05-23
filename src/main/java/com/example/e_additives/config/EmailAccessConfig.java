@@ -38,4 +38,9 @@ public class EmailAccessConfig {
         props.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
         return mailSender;
     }
+
+    @Bean(name = "email")
+    public String getUsername(){
+        return USERNAME;
+    }
 }

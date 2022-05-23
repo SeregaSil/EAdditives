@@ -16,12 +16,12 @@ public class EAdditivesDAO {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<EAdditive> findAll(){
+    public List<EAdditive> findAllAdditives(){
         String sql = "SELECT * FROM Eadditives";
         return jdbcTemplate.query(sql, new EAdditiveMapper());
     }
 
-    public EAdditive findByIndex(String index){
+    public EAdditive findAdditiveByIndex(String index){
         String sql = "SELECT * FROM Eadditives WHERE index = ?";
         return jdbcTemplate.queryForObject(sql, new EAdditiveMapper(), index);
     }

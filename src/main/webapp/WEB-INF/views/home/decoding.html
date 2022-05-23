@@ -31,33 +31,34 @@
 
         <!-- Main -->
         <main class="main">
-
-            <div class="table_additivies">
-                <h1 class="table_additivies__title">Таблица добавок</h1>
-                <table class="table_additivies__table">
-                    <tr>
-                        <th>Индекс</th>
-                        <th>Наименование</th>
-                        <th>Описание</th>
-                        <th>Бла</th>
-                    </tr>
-                    <tr th:each="eadditives : ${selectedAdditives}">
-                        <td th:text="${eadditives.index}">1</td>
-                        <td th:text="${eadditives.type}">1</td>
-                        <td th:text="${eadditives.name}">1</td>
-                        <td th:text="${eadditives.information}">1</td>
-                    </tr>
-                </table>
-
-                <a href="#" download="">
-                    <button class="form__button" value="Скачать">Скачать</button>
-                </a>
-            </div>
+            <form action="/pdf" method="get">
+                <div class="table_additivies">
+                    <h1 class="table_additivies__title">Таблица добавок</h1>
+                    <table class="table_additivies__table">
+                        <tr>
+                            <th>Индекс</th>
+                            <th>Наименование</th>
+                            <th>Описание</th>
+                            <th>Бла</th>
+                        </tr>
+                        <tr th:each="eadditives : ${selectedAdditives}">
+                            <td>
+                                <input type="hidden" name="index" th:value="${eadditives.index}"
+                                       th:text="${eadditives.index}"/>
+                            </td>
+                            <td th:text="${eadditives.type}">1</td>
+                            <td th:text="${eadditives.name}">1</td>
+                            <td th:text="${eadditives.information}">1</td>
+                        </tr>
+                    </table>
+                    <button class="form__button" type="submit" value="Скачать">Скачать</button>
+                </div>
+            </form>
         </main>
 
         <!-- Footer -->
         <div th:insert="fragments/footer"></div>
-
     </div>
+
 </body>
 </html>
