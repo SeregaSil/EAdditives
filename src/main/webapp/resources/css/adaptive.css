@@ -62,7 +62,7 @@
 
 @media (max-width: 700px) {
 
-    /* Spoller*/
+    /* Spoiler*/
     .select.is-active .select__body {
         display: block;
     }
@@ -71,7 +71,7 @@
         display: none;
     }
 
-    .select.is-active .spoller {
+    .select.is-active .spoiler {
         display: flex;
         justify-content: space-between;
 
@@ -89,11 +89,11 @@
         text-align: center;
     }
 
-    .select.is-active .spoller.spoller-is-active {
+    .select.is-active .spoiler.spoiler-is-active {
         box-shadow: 2px 2px 1px #000;
     }
 
-    .select.is-active .spoller__icon {
+    .select.is-active .spoiler__icon {
         justify-content: center;
         text-align: center;
         flex-shrink: 0;
@@ -108,13 +108,13 @@
         transition: transform 0.2s linear;
     }
 
-    .spoller.spoller-is-active .spoller__icon {
+    .spoiler.spoiler-is-active .spoiler__icon {
         transform: rotate(90deg);
         transition: transform 0.2s linear;
         margin-top: 0;
     }
 
-    .spoller.spoller-is-active + .select__vertical {
+    .spoiler.spoiler-is-active + .select__vertical {
         display: block;
 
         width: 100%;
@@ -146,6 +146,11 @@
     /* Feedback */
     .feedback__textarea {
         min-height: 150px;
+    }
+
+    /* Decoding */
+    .table_additivies__table {
+        max-width: 500px; /* надо ли? */
     }
 }
 
@@ -197,7 +202,7 @@
     }
 
     /* Select */
-    .spoller.spoller-is-active + .select__vertical {
+    .spoiler.spoiler-is-active + .select__vertical {
         display: block;
 
         width: 100%;

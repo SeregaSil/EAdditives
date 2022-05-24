@@ -60,9 +60,9 @@
                                 <div class="select__icon"></div>
                             </div>
                             <div class="select__body">
-                                <div class="spoller">
-                                    <span class="spoller__title">E100-E199</span>
-                                    <div class="spoller__icon"></div>
+                                <div class="spoiler">
+                                    <span class="spoiler__title">E100-E199</span>
+                                    <div class="spoiler__icon"></div>
                                 </div>
                                 <div class="select__vertical">
                                     <span>E100-E199</span>
@@ -75,9 +75,9 @@
                                     </label>
                                 </div>
 
-                                <div class="spoller">
-                                    <span class="spoller__title">E200-E299</span>
-                                    <div class="spoller__icon"></div>
+                                <div class="spoiler">
+                                    <span class="spoiler__title">E200-E299</span>
+                                    <div class="spoiler__icon"></div>
                                 </div>
                                 <div class="select__vertical">
                                     <span>E200-E299</span>
@@ -90,9 +90,9 @@
                                     </label>
                                 </div>
 
-                                <div class="spoller">
-                                    <span class="spoller__title">E300-E399</span>
-                                    <div class="spoller__icon"></div>
+                                <div class="spoiler">
+                                    <span class="spoiler__title">E200-E299</span>
+                                    <div class="spoiler__icon"></div>
                                 </div>
                                 <div class="select__vertical">
                                     <span>E300-E399</span>
@@ -105,10 +105,10 @@
                                     </label>
                                 </div>
                             </div>
-
-                        <input class="form__button form__submit" type="submit" value="Расшифровать">
-                        <input class="form__button form__submit" type="reset" value="Очистить">
                         </div>
+
+                        <input class="form__button form__submit" id="buttonCheckboxes" type="submit" value="Расшифровать">
+                        <input class="form__button form__submit" type="reset" value="Очистить">
                     </form>
 
                     <!--Information-->
@@ -133,7 +133,7 @@
                             <form action="/sent" class="feedback__form" method="post" accept-charset="UTF-8" target="_blank">
                                 <label>
                                     <textarea class="feedback__textarea" name="message" placeholder="Сообщите нам об ошибке..."></textarea>
-                                    <input class="form__button feedback__submit" type="submit" value="Отправить">
+                                    <input class="form__button feedback__submit" id="buttonTextArea" type="submit" value="Отправить">
                                     <input class="form__button feedback__submit" type="reset" value="Очистить">
                                 </label>
                             </form>
@@ -143,8 +143,7 @@
 
                 <!--Footer-->
                 <div th:insert="fragments/footer"></div>
-
-            </div>
+            </div><!--./container-->
 
     <!--Script-->
     <script src="/resources/checkbox/checkbox_in_select.js"></script>
