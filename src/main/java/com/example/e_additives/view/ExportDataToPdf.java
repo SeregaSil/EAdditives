@@ -15,76 +15,61 @@ public class ExportDataToPdf {
         this.eAdditiveList = eAdditiveList;
     }
 
-    private Font getFont(){
-        return FontFactory.getFont("timesnewromanpsmt.ttf", "cp1251", BaseFont.EMBEDDED);
+    private Font getTableTextFont(int fontSize){
+        Font font = FontFactory.getFont("timesnewromanpsmt.ttf", "cp1251", BaseFont.EMBEDDED);
+        font.setColor(BaseColor.BLACK);
+        font.setSize(fontSize);
+        return font;
     }
 
+    private PdfPCell getTableCell(BaseColor color){
+        PdfPCell cell = new PdfPCell();
+        cell.setBackgroundColor(color);
+        cell.setPaddingBottom(6);
+        return cell;
+    }
 
     private void writeTableHeader(PdfPTable table) {
 
-        BaseColor color = new BaseColor(130,255,222,255);
-        Font font = getFont();
-        PdfPCell cell = new PdfPCell();
-        cell.setBackgroundColor(color);
-        font.setColor(BaseColor.BLACK);
-        font.setSize(16);
-        cell.setPaddingBottom(6);
+        PdfPCell cell = getTableCell(new BaseColor(130,255,222,255));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 
-        cell.setPhrase(new Phrase("Группа", font));
+        cell.setPhrase(new Phrase("Группа", getTableTextFont(16)));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("Индекс", font));
+        cell.setPhrase(new Phrase("Индекс", getTableTextFont(16)));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("Имя", font));
+        cell.setPhrase(new Phrase("Имя", getTableTextFont(16)));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("Information", font));
+        cell.setPhrase(new Phrase("Information", getTableTextFont(16)));
         table.addCell(cell);
 
     }
 
     private void writeTableData(PdfPTable table) {
-        BaseColor color = new BaseColor(211,255,233,255);
-        Font font = getFont();
-        PdfPCell cell = new PdfPCell();
-        font.setSize(12);
-        cell.setBackgroundColor(color);
-        cell.setPaddingBottom(6);
+
+        PdfPCell cell = getTableCell(new BaseColor(211,255,233,255));
         cell.setPaddingLeft(4);
         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
 
         for (EAdditive eAdditive : eAdditiveList) {
-            cell.setPhrase(new Phrase(eAdditive.getType(), font));
+            cell.setPhrase(new Phrase(eAdditive.getType(), getTableTextFont(12)));
             table.addCell(cell);
 
-            cell.setPhrase(new Phrase(eAdditive.getIndex(), font));
+            cell.setPhrase(new Phrase(eAdditive.getIndex(), getTableTextFont(12)));
             table.addCell(cell);
 
-            cell.setPhrase(new Phrase(eAdditive.getName(), font));
+            cell.setPhrase(new Phrase(eAdditive.getName(), getTableTextFont(12)));
             table.addCell(cell);
 
-            cell.setPhrase(new Phrase(eAdditive.getInformation(), font));
+            cell.setPhrase(new Phrase(eAdditive.getInformation(), getTableTextFont(12)));
             table.addCell(cell);
         }
     }
 
-    public void export(HttpServletResponse response) throws DocumentException, IOException {
-        Document document = new Document(PageSize.A4);
-        PdfWriter.getInstance(document, response.getOutputStream());
-
-
-        document.open();
-        Font font = getFont();
-        font.setSize(18);
-        font.setColor(BaseColor.BLACK);
-
-        Paragraph p = new Paragraph("List of EAdditives", font);
-        p.setAlignment(Paragraph.ALIGN_CENTER);
-
-        document.add(p);
-
+    private PdfPTable createTable() throws DocumentException {
         PdfPTable table = new PdfPTable(4);
         table.setWidthPercentage(100f);
         table.setWidths(new float[] {1.55f, 1.0f, 1.5f, 5.0f});
@@ -92,8 +77,20 @@ public class ExportDataToPdf {
 
         writeTableHeader(table);
         writeTableData(table);
+        return table;
+    }
 
-        document.add(table);
+    public void export(HttpServletResponse response) throws DocumentException, IOException {
+        Document document = new Document(PageSize.A4);
+        PdfWriter.getInstance(document, response.getOutputStream());
+
+        document.open();
+
+        Paragraph p = new Paragraph("List of EAdditives", getTableTextFont(18));
+        p.setAlignment(Paragraph.ALIGN_CENTER);
+
+        document.add(p);
+        document.add(createTable());
 
         document.close();
         response.getOutputStream().close();

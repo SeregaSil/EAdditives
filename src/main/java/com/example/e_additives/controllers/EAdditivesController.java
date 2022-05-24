@@ -32,10 +32,7 @@ public class EAdditivesController {
     }
 
     @PostMapping("/decoding")
-    public String decoding(@RequestParam(value = "index", required = false) List<String> indexes, Model model){
-        if (indexes == null){
-            return "home/error";
-        }
+    public String decoding(@RequestParam(value = "index") List<String> indexes, Model model){
         model.addAttribute("selectedAdditives", eAdditivesService.getSelectedAdditivesByIndex(indexes));
         return "home/decoding";
     }
@@ -46,11 +43,11 @@ public class EAdditivesController {
         return "home/success";
     }
 
-    @GetMapping("/pdf")
+    @PostMapping("/pdf")
     public void exportToPDF(@RequestParam(value = "index") List<String> indexes, HttpServletResponse response) throws DocumentException, IOException {
         response.setContentType("application/pdf");
         String headerKey = "Content-Disposition";
-        String headerValue = "inline; filename=EAdditives" + ".pdf";
+        String headerValue = "inline; filename=EAdditives.pdf";
         response.setHeader(headerKey, headerValue);
 
         ExportDataToPdf exportDataToPdf = new ExportDataToPdf(eAdditivesService.getSelectedAdditivesByIndex(indexes));
